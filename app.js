@@ -14,7 +14,7 @@ if(process.env.NODE_ENV !== 'test'){
 app.use(bodyParser.json());
 routes(app);  //connect routes to app
 app.use((err, req, res, next) => {
-    res.send({error: err.message});
+    res.status(422).send({error: err.message});
 }); //handle errors
 
 module.exports = app;
